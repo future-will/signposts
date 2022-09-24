@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/thomas-lowry/figma-plugin-ds/dist/figma-plugin-ds.css">
+
+<style>
+  body{
+     padding: 2em;
+  }
+  div{
+    margin: 1em;
+  }
+  input{
+    display: block;
+  }
+</style>
+
+<h1>Sign Posts</h1>
+<div>
+  <h3>create a new tag</h3>
+  
+</div>
+<div class="radio">
+  <input id="signpost1" type="radio" class="radio__button" name="radioGroup" value="1" checked>
+  <label for="signpost1" class="radio__label">Sign Post 1</label>
+
+  <input id="signpost2" type="radio" class="radio__button" name="radioGroup" value="2">
+  <label for="signpost2" class="radio__label">Sign Post 2</label>
+
+  <input id="signpost3" type="radio" class="radio__button" name="radioGroup" value="3">
+  <label for="signpost3" class="radio__label">Sign Post 3</label>
+</div>
+<div>
+  <button class='button button--primary' id = "run" >run</button>
+  <button class='button button--secondary' id = "cancel" >cancel</button>
+</div>
+
+
+<script>
+
+document.getElementById('run').onclick = () => {
+  const radioValue = document.querySelector('input[name="radioGroup"]:checked').value;
+  parent.postMessage({pluginMessage:{radioValue}},'*');
+}
+/*
+document.getElementById('cancel').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+}
+*/
+</script>
